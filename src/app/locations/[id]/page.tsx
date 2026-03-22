@@ -118,7 +118,8 @@ export default function LocationDetailPage({ params }: PageProps) {
               {/* Buttons */}
               <div className="flex gap-3 flex-wrap pt-2">
                 <a
-                  href=""
+                  target="_blank"
+                  href={loc.bookingLink}
                   className="px-6 py-3 bg-green-700 text-white rounded-lg font-semibold text-sm hover:bg-green-800 transition-colors"
                 >
                   Book This Location
@@ -151,7 +152,7 @@ export default function LocationDetailPage({ params }: PageProps) {
           <p className="text-gray-600 leading-relaxed">{loc.description}</p>
           <div className="flex gap-3 flex-wrap mt-6">
             <a
-              href=""
+              href={loc.bookingLink}
               className="px-6 py-3 bg-green-700 text-white rounded-lg font-semibold text-sm hover:bg-green-800 transition-colors"
             >
               Book This Location

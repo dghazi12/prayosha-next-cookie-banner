@@ -16,6 +16,7 @@ export interface Location {
   lng: number;
   description: string;
   mapQuery: string;
+  bookingLink: string;
 }
 
 export const LOCATIONS: Location[] = [
@@ -41,6 +42,7 @@ export const LOCATIONS: Location[] = [
     description:
       "Located at the heart of Yonge & Alexandra, our flagship location offers a full range of threading, waxing, and facial services in a relaxing, welcoming environment.",
     mapQuery: "2714+Yonge+Street+Toronto+ON+M4N+2H9",
+    bookingLink: "https://www.fresha.com/a/prayosha-threading-wax-bar-younge-street-toronto-2714-yonge-street-ywdcg8b2/booking?menu=true&pId=1221172&dppub=true"
   },
   {
     id: "church",
@@ -64,6 +66,7 @@ export const LOCATIONS: Location[] = [
     description:
       "Conveniently situated near Bloor & Church, this location is perfect for a quick visit before or after work. Walk-ins welcome!",
     mapQuery: "616+Church+Street+Toronto+ON+M4Y+2G2",
+    bookingLink: "https://www.fresha.com/a/prayosha-threading-wax-bar-church-st-toronto-616-church-street-mmh4al0e/booking?menu=true&dppub=true&pId=387202&cartId=db09d9ae-8a59-4501-bc39-fbc483a97c28"
   },
   {
     id: "harbour",
@@ -87,6 +90,7 @@ export const LOCATIONS: Location[] = [
     description:
       "Our waterfront location at Harbour Square offers stunning views and a full suite of beauty services. A hidden gem by the lake.",
     mapQuery: "33+Harbour+Square+Toronto+ON+M5J+2G2",
+    bookingLink: "https://www.fresha.com/a/prayosha-threading-wax-bar-harbour-square-toronto-33-harbour-square-vk7bv4jp/booking?menu=true&pId=1221172&dppub=true&cartId=71d88a33-600d-4db4-8c72-7fa532af980e"
   },
   {
     id: "bathurst",
@@ -110,6 +114,7 @@ export const LOCATIONS: Location[] = [
     description:
       "Nestled in the St. Clair West neighbourhood, our Bathurst location serves the midtown community with expert threading and waxing services.",
     mapQuery: "1500+Bathurst+St+Toronto+ON+M5P+3L3",
+    bookingLink: "https://www.fresha.com/a/prayosha-threading-wax-bar-bathurst-st-toronto-1500-bathurst-street-ec8gbak9/booking?menu=true&pId=1221172&dppub=true"
   },
   {
     id: "danforth",
@@ -133,5 +138,6 @@ export const LOCATIONS: Location[] = [
     description:
       "Our newest East Toronto location on the vibrant Danforth strip. Full services available with easy TTC access from Broadview station.",
     mapQuery: "348+Danforth+Avenue+Toronto+ON+M4K+1N8",
+    bookingLink: ""
   },
 ];

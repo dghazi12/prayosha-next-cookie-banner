@@ -82,7 +82,7 @@ export default function Header() {
             </Link>
           ))}
           <a
-            href=""
+            href="/locations"
             className="bg-green-700 text-white px-6 py-2.5 rounded-lg text-sm font-semibold hover:bg-green-800 transition-colors mt-2 md:mt-0 md:ml-2 text-center"
             aria-label="Book an appointment now"
           >

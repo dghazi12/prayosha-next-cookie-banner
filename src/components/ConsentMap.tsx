@@ -30,7 +30,7 @@ export default function ConsentMap({
       <div className="rounded-2xl overflow-hidden shadow-md">
         <iframe
           title={`Map of Prayosha ${locationName}`}
-          src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=${mapQuery}`}
+          src={`https://www.google.com/maps/embed/v1/place?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY}&q=${mapQuery}`}
           className="w-full h-[300px] border-0"
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
