@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap");
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    @apply font-sans text-gray-600 bg-cream leading-relaxed;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-serif text-green-800 leading-tight;
+  }
+}
+
+@layer components {
+  /* Skip link for accessibility */
+  .skip-link {
+    @apply absolute -top-24 left-4 bg-green-700 text-white px-4 py-2 rounded-b-lg z-[10000] font-semibold transition-all duration-200;
+  }
+  .skip-link:focus {
+    @apply top-0;
+  }
+
+  /* Hero slider animation */
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .animate-fade-up {
+    animation: fadeUp 0.6s ease forwards;
+  }
+  .animate-fade-up-d1 {
+    animation: fadeUp 0.6s ease 0.1s forwards;
+    opacity: 0;
+  }
+  .animate-fade-up-d2 {
+    animation: fadeUp 0.6s ease 0.2s forwards;
+    opacity: 0;
+  }
+  .animate-fade-up-d3 {
+    animation: fadeUp 0.6s ease 0.3s forwards;
+    opacity: 0;
+  }
+}
