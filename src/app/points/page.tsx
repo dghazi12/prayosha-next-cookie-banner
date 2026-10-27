@@ -71,12 +71,15 @@ export default function PointsPage() {
             key={card.title}
             className="bg-white rounded-2xl p-9 shadow-md text-center border border-black/[0.04] hover:-translate-y-1 hover:shadow-lg transition-all"
           >
-            <div className="w-16 h-16 bg-green-50 rounded-2xl flex items-center justify-center text-3xl mx-auto mb-5">
+            <div
+              className="w-16 h-16 bg-green-50 rounded-2xl flex items-center justify-center text-3xl mx-auto mb-5"
+              aria-hidden="true"
+            >
               {card.icon}
             </div>
-            <h3 className="font-serif text-lg text-green-800 mb-2.5">
+            <h2 className="font-serif text-lg text-green-800 mb-2.5">
               {card.title}
-            </h3>
+            </h2>
             <p className="text-sm text-gray-500 leading-relaxed">{card.desc}</p>
           </div>
         ))}
@@ -88,46 +91,41 @@ export default function PointsPage() {
           Membership Tiers
         </h2>
 
-        {/* Header */}
-        <div className="grid grid-cols-1 sm:grid-cols-[140px_1fr_1fr] gap-[2px] bg-black/[0.04] rounded-xl overflow-hidden">
-          <div className="bg-white px-6 py-4 text-xs font-bold uppercase tracking-wider text-gray-500">
-            Tier
-          </div>
-          <div className="bg-white px-6 py-4 text-xs font-bold uppercase tracking-wider text-gray-500 hidden sm:block">
-            Requirement
-          </div>
-          <div className="bg-white px-6 py-4 text-xs font-bold uppercase tracking-wider text-gray-500 hidden sm:block">
-            Benefits
-          </div>
-
-          {TIERS.map((tier) => (
-            <>
-              <div
-                key={`${tier.name}-name`}
-                className="bg-white px-6 py-4 text-sm font-bold text-green-700"
-              >
-                {tier.name}
-              </div>
-              <div
-                key={`${tier.name}-req`}
-                className="bg-white px-6 py-4 text-sm text-gray-600"
-              >
-                <span className="sm:hidden font-semibold text-gray-800">
-                  Requirement:{" "}
-                </span>
-                {tier.req}
-              </div>
-              <div
-                key={`${tier.name}-ben`}
-                className="bg-white px-6 py-4 text-sm text-gray-600"
-              >
-                <span className="sm:hidden font-semibold text-gray-800">
-                  Benefits:{" "}
-                </span>
-                {tier.benefits}
-              </div>
-            </>
-          ))}
+        <div
+          className="overflow-x-auto rounded-xl border border-black/[0.06]"
+          role="region"
+          aria-label="Membership tiers table"
+          tabIndex={0}
+        >
+          <table className="w-full min-w-[560px] bg-white text-left">
+            <caption className="sr-only">
+              Prayosha Points membership tiers, requirements and benefits
+            </caption>
+            <thead>
+              <tr className="border-b border-black/[0.06]">
+                <th scope="col" className="px-6 py-4 w-[140px] text-xs font-bold uppercase tracking-wider text-gray-600">
+                  Tier
+                </th>
+                <th scope="col" className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-gray-600">
+                  Requirement
+                </th>
+                <th scope="col" className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-gray-600">
+                  Benefits
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {TIERS.map((tier) => (
+                <tr key={tier.name} className="border-b border-black/[0.06] last:border-b-0">
+                  <th scope="row" className="px-6 py-4 text-sm font-bold text-green-700">
+                    {tier.name}
+                  </th>
+                  <td className="px-6 py-4 text-sm text-gray-600">{tier.req}</td>
+                  <td className="px-6 py-4 text-sm text-gray-600">{tier.benefits}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
     </section>

@@ -19,7 +19,7 @@ export default function ConsentMap({
   if (!loaded) {
     return (
       <div className="rounded-2xl overflow-hidden shadow-md bg-cream-dark h-[300px] flex items-center justify-center">
-        <div className="text-sm text-gray-400">Loading map...</div>
+        <div className="text-sm text-gray-600" role="status">Loading map...</div>
       </div>
     );
   }
@@ -35,7 +35,6 @@ export default function ConsentMap({
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
           allowFullScreen
-          aria-label={`Google Maps showing ${locationName} location`}
         />
       </div>
     );
@@ -57,8 +56,12 @@ export default function ConsentMap({
 
       <div className="relative text-center px-6 max-w-sm">
         {/* Map pin icon */}
-        <div className="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+        <div
+          className="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-4"
+          aria-hidden="true"
+        >
           <svg
+            focusable="false"
             viewBox="0 0 24 24"
             fill="none"
             className="w-7 h-7 text-green-300"
@@ -78,16 +81,17 @@ export default function ConsentMap({
           </svg>
         </div>
 
-        <p className="text-white/80 text-sm font-medium mb-1.5">
+        <p className="text-white/90 text-sm font-medium mb-1.5">
           Map requires third-party cookies
         </p>
-        <p className="text-white/50 text-xs leading-relaxed mb-5">
+        <p className="text-white/70 text-xs leading-relaxed mb-5">
           Google Maps uses cookies to display the interactive map. You can accept
           cookies to view it here, or open directions in a new tab.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-2.5 justify-center">
           <button
+            type="button"
             onClick={() => {
               // Update consent to enable third-party cookies
               try {
@@ -131,7 +135,8 @@ export default function ConsentMap({
             rel="noopener noreferrer"
             className="bg-white/10 text-white px-5 py-2.5 rounded-lg text-sm font-semibold border border-white/20 hover:bg-white/20 transition-colors"
           >
-            Open in Google Maps ↗
+            Open in Google Maps <span aria-hidden="true">↗</span>
+            <span className="sr-only"> (opens in a new tab)</span>
           </a>
         </div>
       </div>

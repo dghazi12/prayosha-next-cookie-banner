@@ -20,6 +20,26 @@
   h4 {
     @apply font-serif text-green-800 leading-tight;
   }
+
+  /* Visible keyboard focus indicator for all interactive elements */
+  :focus-visible {
+    outline: 3px solid #4a8528;
+    outline-offset: 2px;
+  }
+
+  /* Respect users who prefer reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
 }
 
 @layer components {
@@ -29,6 +49,8 @@
   }
   .skip-link:focus {
     @apply top-0;
+    outline-color: #ffffff;
+    outline-offset: -4px;
   }
 
   /* Hero slider animation */

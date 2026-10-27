@@ -11,7 +11,7 @@ export default function NotFound() {
         href="/"
         className="inline-flex items-center gap-2 bg-green-700 text-white px-7 py-3.5 rounded-xl font-semibold text-[15px] hover:bg-green-800 transition-colors"
       >
-        ← Back to home
+        <span aria-hidden="true">←</span> Back to home
       </Link>
     </section>
   );

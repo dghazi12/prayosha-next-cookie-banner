@@ -37,11 +37,14 @@ export default function LocationsPage() {
             <div className="p-7">
               {/* Header */}
               <div className="flex items-start gap-3.5 mb-4">
-                <div className="w-9 h-9 bg-green-50 rounded-xl flex items-center justify-center font-bold text-green-700 text-sm shrink-0">
+                <div
+                  className="w-9 h-9 bg-green-50 rounded-xl flex items-center justify-center font-bold text-green-700 text-sm shrink-0"
+                  aria-hidden="true"
+                >
                   {i + 1}
                 </div>
                 <div>
-                  <h2 className="font-serif text-xl text-green-800 group-hover:text-green-600 transition-colors">
+                  <h2 className="font-serif text-xl text-green-800 group-hover:text-green-700 transition-colors">
                     {loc.name}
                   </h2>
                   <p className="text-[13px] text-gray-500">{loc.subtitle}</p>
@@ -50,10 +53,10 @@ export default function LocationsPage() {
 
               {/* Details */}
               <div className="flex items-center gap-2 text-sm text-gray-600 mb-1.5">
-                <span>📍</span> {loc.address}
+                <span aria-hidden="true">📍</span> {loc.address}
               </div>
               <div className="flex items-center gap-2 text-sm text-gray-600">
-                <span>📞</span> {loc.phone}
+                <span aria-hidden="true">📞</span> {loc.phone}
               </div>
 
               {/* Footer */}
@@ -62,7 +65,7 @@ export default function LocationsPage() {
                   {loc.hours}
                 </span>
                 <span className="text-green-700 font-semibold text-sm flex items-center gap-1.5 group-hover:gap-2.5 transition-all">
-                  Location details <span>→</span>
+                  Location details <span aria-hidden="true">→</span>
                 </span>
               </div>
             </div>

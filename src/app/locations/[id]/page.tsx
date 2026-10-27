@@ -39,7 +39,7 @@ export default function LocationDetailPage({ params }: PageProps) {
             href="/locations"
             className="inline-flex items-center gap-1.5 text-green-300 text-sm font-medium hover:text-white transition-colors mb-4"
           >
-            ← Back to all locations
+            <span aria-hidden="true">←</span> Back to all locations
           </Link>
           <p className="text-xs uppercase tracking-[2px] text-green-300 mb-2">
             Ontario
@@ -54,27 +54,35 @@ export default function LocationDetailPage({ params }: PageProps) {
       <div className="max-w-7xl mx-auto px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           {/* Hours */}
-          <div className="bg-white rounded-2xl overflow-hidden shadow-md">
-            <div className="px-7 py-5 font-bold text-[15px] text-gray-800 flex items-center gap-2 border-b border-cream-dark">
-              🕐 Hours
-            </div>
-            {loc.hoursDetail.map((h, i) => (
-              <div
-                key={i}
-                className="flex justify-between px-7 py-3.5 text-sm border-b border-cream-dark last:border-b-0"
-              >
-                <span className="text-gray-600">{h.day}</span>
-                <span className="font-semibold text-gray-800">{h.time}</span>
-              </div>
-            ))}
-          </div>
+          <section
+            className="bg-white rounded-2xl overflow-hidden shadow-md self-start"
+            aria-labelledby="hours-heading"
+          >
+            <h2
+              id="hours-heading"
+              className="px-7 py-5 font-sans font-bold text-[15px] text-gray-800 flex items-center gap-2 border-b border-cream-dark"
+            >
+              <span aria-hidden="true">🕐</span> Hours
+            </h2>
+            <dl>
+              {loc.hoursDetail.map((h, i) => (
+                <div
+                  key={i}
+                  className="flex justify-between px-7 py-3.5 text-sm border-b border-cream-dark last:border-b-0"
+                >
+                  <dt className="text-gray-600">{h.day}</dt>
+                  <dd className="font-semibold text-gray-800">{h.time}</dd>
+                </div>
+              ))}
+            </dl>
+          </section>
 
           {/* Info + Map */}
           <div className="space-y-5">
             <div className="bg-white rounded-2xl p-7 shadow-md space-y-5">
               {/* Address */}
               <div className="flex items-start gap-3 text-sm text-gray-600">
-                <div className="w-9 h-9 bg-green-50 rounded-xl flex items-center justify-center shrink-0 text-base">
+                <div className="w-9 h-9 bg-green-50 rounded-xl flex items-center justify-center shrink-0 text-base" aria-hidden="true">
                   📍
                 </div>
                 <div>
@@ -85,14 +93,14 @@ export default function LocationDetailPage({ params }: PageProps) {
 
               {/* Phone */}
               <div className="flex items-start gap-3 text-sm text-gray-600">
-                <div className="w-9 h-9 bg-green-50 rounded-xl flex items-center justify-center shrink-0 text-base">
+                <div className="w-9 h-9 bg-green-50 rounded-xl flex items-center justify-center shrink-0 text-base" aria-hidden="true">
                   📞
                 </div>
                 <div>
                   <strong className="text-gray-800 block">Phone</strong>
                   <a
                     href={`tel:${loc.phone}`}
-                    className="text-green-700 hover:underline"
+                    className="text-green-700 underline"
                   >
                     {loc.phone}
                   </a>
@@ -101,14 +109,14 @@ export default function LocationDetailPage({ params }: PageProps) {
 
               {/* Email */}
               <div className="flex items-start gap-3 text-sm text-gray-600">
-                <div className="w-9 h-9 bg-green-50 rounded-xl flex items-center justify-center shrink-0 text-base">
+                <div className="w-9 h-9 bg-green-50 rounded-xl flex items-center justify-center shrink-0 text-base" aria-hidden="true">
                   ✉️
                 </div>
                 <div>
                   <strong className="text-gray-800 block">Email</strong>
                   <a
                     href={`mailto:${loc.email}`}
-                    className="text-green-700 hover:underline"
+                    className="text-green-700 underline"
                   >
                     {loc.email}
                   </a>
@@ -119,10 +127,12 @@ export default function LocationDetailPage({ params }: PageProps) {
               <div className="flex gap-3 flex-wrap pt-2">
                 <a
                   target="_blank"
+                  rel="noopener noreferrer"
                   href={loc.bookingLink}
                   className="px-6 py-3 bg-green-700 text-white rounded-lg font-semibold text-sm hover:bg-green-800 transition-colors"
                 >
                   Book This Location
+                  <span className="sr-only"> (opens in a new tab)</span>
                 </a>
                 <a
                   href={`https://www.google.com/maps/search/?api=1&query=${loc.mapQuery}`}
@@ -131,6 +141,7 @@ export default function LocationDetailPage({ params }: PageProps) {
                   className="px-6 py-3 bg-green-50 text-green-700 rounded-lg font-semibold text-sm hover:bg-green-100 transition-colors"
                 >
                   Get Directions
+                  <span className="sr-only"> (opens in a new tab)</span>
                 </a>
               </div>
             </div>
@@ -164,6 +175,7 @@ export default function LocationDetailPage({ params }: PageProps) {
               className="px-6 py-3 bg-green-50 text-green-700 rounded-lg font-semibold text-sm hover:bg-green-100 transition-colors"
             >
               Get Directions
+              <span className="sr-only"> (opens in a new tab)</span>
             </a>
           </div>
         </div>

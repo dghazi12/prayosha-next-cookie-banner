@@ -51,22 +51,25 @@ export default function CareersPage() {
 
         {/* Requirements */}
         <h3 className="font-serif text-lg text-green-800 mb-4">Requirements</h3>
-        <div className="space-y-2.5 mb-8">
+        <ul className="space-y-2.5 mb-8">
           {REQUIREMENTS.map((req) => (
-            <div key={req} className="flex items-center gap-2.5 text-[15px] text-gray-600">
-              <div className="w-6 h-6 bg-green-50 rounded-md flex items-center justify-center text-green-600 text-[13px] shrink-0">
+            <li key={req} className="flex items-center gap-2.5 text-[15px] text-gray-600">
+              <div
+                className="w-6 h-6 bg-green-50 rounded-md flex items-center justify-center text-green-600 text-[13px] shrink-0"
+                aria-hidden="true"
+              >
                 ✓
               </div>
               {req}
-            </div>
+            </li>
           ))}
-        </div>
+        </ul>
 
         <p className="text-sm text-gray-500">
           You can also email your resume directly to{" "}
           <a
             href="mailto:careers@prayoshathreadingbar.ca"
-            className="text-green-700 font-semibold hover:underline"
+            className="text-green-700 font-semibold underline"
           >
             careers@prayoshathreadingbar.ca
           </a>
